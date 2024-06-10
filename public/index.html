@@ -10,10 +10,14 @@
   <div id="message"></div>
 
   <script>
-    fetch('/api/hello')
+     fetch('/api/hello')
       .then(response => response.json())
       .then(data => {
         document.getElementById('message').textContent = data.message;
+      })
+      .catch(error => {
+        console.error('Error fetching the data:', error);
+        document.getElementById('message').textContent = 'Error fetching the data';
       });
   </script>
 </body>
